@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="選一個最接近現在感受的心情，開始一段溫柔的自我探索。"
+    />
+    <title>心情點播室｜MOOD MUSIC STATION</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="meteor-layer" id="meteor-layer" aria-hidden="true"></div>
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#home" aria-label="心情點播室首頁">
+          <span class="brand-icon" aria-hidden="true">♫</span>
+          <span>心情點播室 <span class="brand-en">Mood Music</span></span>
+        </a>
+        <span class="step-indicator" id="step-indicator">準備好聽聽自己的心情了嗎？</span>
+      </header>
+
+      <section class="page-view home-view" id="home-view" aria-labelledby="home-title" hidden>
+        <div class="home-title-group">
+          <p class="eyebrow">給今天的自己，一點溫柔的時間</p>
+          <h1 id="home-title">心情點播室</h1>
+          <p class="home-english">MOOD MUSIC STATION</p>
+          <span class="title-sparkle title-sparkle-one" aria-hidden="true">✦</span>
+          <span class="title-sparkle title-sparkle-two" aria-hidden="true">✧</span>
+        </div>
+        <div class="piano-stage">
+          <span class="piano-star piano-star-one" aria-hidden="true">✦</span>
+          <span class="piano-star piano-star-two" aria-hidden="true">✧</span>
+          <span class="piano-star piano-star-three" aria-hidden="true">✦</span>
+          <span class="piano-moon" aria-hidden="true"></span>
+          <button class="dream-piano" id="dream-piano" type="button" aria-label="點擊夢幻鋼琴，開啟音樂旅程">
+            <span class="piano-lid"></span>
+            <span class="piano-body">
+              <span class="piano-music-mark" aria-hidden="true">♫</span>
+              <span class="piano-keys" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </span>
+            </span>
+            <span class="piano-leg piano-leg-left"></span>
+            <span class="piano-leg piano-leg-right"></span>
+          </button>
+          <div class="piano-cloud piano-cloud-back" aria-hidden="true"></div>
+          <div class="piano-cloud piano-cloud-front" aria-hidden="true"></div>
+        </div>
+        <div class="home-welcome">
+          <h2>嗨～歡迎來到心情點播室！</h2>
+          <p>在這裡，你可以好好安放自己的心情，讓音樂陪伴你度過每一個時刻。不論今天是開心、難過，還是有點說不出來的感受，都歡迎你來到這裡。</p>
+        </div>
+        <p class="piano-hint">點擊中央的夢幻鋼琴，開啟你的音樂旅程 <span aria-hidden="true">✨</span></p>
+        <div class="home-actions">
+          <button class="button button-secondary home-start-button" type="button" data-go="mood">
+            從這裡開始 <span aria-hidden="true">→</span>
+          </button>
+          <button class="button constellation-link" type="button" data-go="constellation">
+            <span aria-hidden="true">✧</span> 我的心情星座
+          </button>
+        </div>
+      </section>
+
+      <section class="page-view mood-view" id="mood-view" aria-labelledby="mood-title" hidden>
+        <div class="page-decoration" aria-hidden="true">
+          <span class="decoration decoration-flower">✿</span>
+          <span class="decoration decoration-sparkle">✧</span>
+          <span class="decoration decoration-note">♪</span>
+        </div>
+        <p class="eyebrow">心情點播室・第一站</p>
+        <h1 id="mood-title">今天的你，心情如何呢？</h1>
+        <p class="intro">不用想太多，選一個最接近現在感受的心情吧！</p>
+
+        <fieldset class="mood-fieldset">
+          <legend class="visually-hidden">選擇今天的心情</legend>
+          <div class="mood-grid" id="mood-options">
+            <label class="mood-card mood-pink">
+              <input type="radio" name="mood" value="開心" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/happy.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">開心</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+            <label class="mood-card mood-lavender">
+              <input type="radio" name="mood" value="難過" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/sad.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">難過</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+            <label class="mood-card mood-peach">
+              <input type="radio" name="mood" value="生氣" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/angry.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">生氣</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+            <label class="mood-card mood-yellow">
+              <input type="radio" name="mood" value="焦慮" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/anxious.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">焦慮</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+            <label class="mood-card mood-blue">
+              <input type="radio" name="mood" value="疲憊" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/tired.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">疲憊</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+            <label class="mood-card mood-green">
+              <input type="radio" name="mood" value="平靜" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/calm.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">平靜</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+            <label class="mood-card mood-cream">
+              <input type="radio" name="mood" value="不知道" />
+              <img class="mood-spirit" src="assets/images/mood-spirits/unsure.svg" alt="" aria-hidden="true" />
+              <span class="mood-name">不知道</span>
+              <span class="mood-check" aria-hidden="true">✓</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <p class="selection-hint" id="selection-hint" aria-live="polite">
+          選一張最貼近你的心情卡片吧
+        </p>
+        <div class="page-actions">
+          <button class="button button-secondary" type="button" data-go="home">
+            <span aria-hidden="true">←</span> 返回首頁
+          </button>
+          <button class="button button-primary" id="next-button" type="button" data-go="explore" hidden>
+            下一步 <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="page-view explore-view" id="explore-view" aria-labelledby="explore-title" hidden>
+        <div class="explore-heading">
+          <div class="explore-icon" aria-hidden="true">☁︎</div>
+          <p class="eyebrow">心情點播室・第二站</p>
+          <h1 id="explore-title">願意和我聊聊，發生什麼事了嗎？</h1>
+          <p class="explore-copy">
+            你現在感覺 <strong id="chosen-mood"></strong>。不用急著回答，照自己的步調就好。
+          </p>
+        </div>
+
+        <div class="explore-form">
+          <section class="explore-section" aria-labelledby="intensity-title">
+            <div class="section-title-row">
+              <span class="section-icon intensity-icon" aria-hidden="true">♡</span>
+              <div>
+                <h2 id="intensity-title">心情溫度計</h2>
+                <p class="section-prompt">這份心情現在有多強烈呢？</p>
+              </div>
+            </div>
+            <div class="intensity-control">
+              <div class="intensity-value" aria-live="polite">
+                <output id="intensity-output" for="intensity-slider">5</output>
+                <span>/ 10</span>
+              </div>
+              <input
+                id="intensity-slider"
+                class="intensity-slider"
+                type="range"
+                min="1"
+                max="10"
+                step="1"
+                value="5"
+                aria-describedby="intensity-help"
+              />
+              <div class="range-labels" id="intensity-help">
+                <span>一點點</span>
+                <span>非常強烈</span>
+              </div>
+            </div>
+          </section>
+
+          <fieldset class="explore-section context-fieldset">
+            <legend class="visually-hidden">選擇心情可能相關的事情，可複選</legend>
+            <div class="section-title-row">
+              <span class="section-icon context-icon" aria-hidden="true">✿</span>
+              <div>
+                <h2>這份心情可能和什麼事情有關呢？</h2>
+                <p class="section-prompt">可以選幾個，也可以先不選。</p>
+              </div>
+            </div>
+            <div class="context-grid">
+              <label class="context-option">
+                <input type="checkbox" name="context" value="課業或考試壓力" />
+                <span class="context-check" aria-hidden="true">✓</span>
+                <span>課業或考試壓力</span>
+              </label>
+              <label class="context-option">
+                <input type="checkbox" name="context" value="同學或朋友相處" />
+                <span class="context-check" aria-hidden="true">✓</span>
+                <span>同學或朋友相處</span>
+              </label>
+              <label class="context-option">
+                <input type="checkbox" name="context" value="家庭發生的事情" />
+                <span class="context-check" aria-hidden="true">✓</span>
+                <span>家庭發生的事情</span>
+              </label>
+              <label class="context-option">
+                <input type="checkbox" name="context" value="感情或喜歡的人" />
+                <span class="context-check" aria-hidden="true">✓</span>
+                <span>感情或喜歡的人</span>
+              </label>
+              <label class="context-option">
+                <input type="checkbox" name="context" value="說不上來，就是心情不好" />
+                <span class="context-check" aria-hidden="true">✓</span>
+                <span>說不上來，就是心情不好</span>
+              </label>
+              <label class="context-option">
+                <input type="checkbox" name="context" value="其他事情" />
+                <span class="context-check" aria-hidden="true">✓</span>
+                <span>其他事情</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <section class="explore-section reflection-section" aria-labelledby="reflection-title">
+            <div class="section-title-row">
+              <span class="section-icon reflection-icon" aria-hidden="true">✎</span>
+              <div>
+                <h2 id="reflection-title">給心裡的話一個位置</h2>
+                <p class="section-prompt">如果現在有一個願意聽你說話的人，你最想告訴他什麼呢？</p>
+              </div>
+            </div>
+            <label class="visually-hidden" for="reflection-input">寫下心裡的話，選填</label>
+            <textarea
+              id="reflection-input"
+              class="reflection-input"
+              rows="4"
+              maxlength="1000"
+              placeholder="不用寫得完整，想到什麼都可以……（選填）"
+            ></textarea>
+            <p class="privacy-note">這裡不需要填寫姓名或身分資訊。內容只保存在目前的瀏覽器分頁中。</p>
+            <button class="button button-primary response-submit" id="send-feelings-button" type="button">
+              送出心情，收一封回信
+            </button>
+          </section>
+        </div>
+
+        <section class="moon-letter" id="moon-letter" aria-labelledby="moon-letter-title" aria-live="polite" hidden>
+          <div class="letter-heading">
+            <span class="letter-moon" aria-hidden="true">☾</span>
+            <div>
+              <p class="eyebrow">月亮小精靈的心情回信</p>
+              <h2 id="moon-letter-title">謝謝你願意和我分享</h2>
+            </div>
+          </div>
+          <p class="letter-intensity" id="letter-intensity"></p>
+          <section class="letter-part">
+            <h3>先好好接住這份心情</h3>
+            <p id="letter-empathy"></p>
+          </section>
+          <section class="letter-part">
+            <h3>月亮想對你說</h3>
+            <p id="letter-response"></p>
+          </section>
+          <section class="letter-part">
+            <h3>照顧自己的小建議</h3>
+            <ul id="letter-suggestions"></ul>
+          </section>
+          <p class="safety-reminder" id="safety-reminder" role="alert" hidden></p>
+          <p class="letter-action-feedback" id="letter-action-feedback" aria-live="polite"></p>
+          <div class="letter-actions">
+            <button class="button button-primary" id="try-suggestion-button" type="button">我想試試這個建議</button>
+            <button class="button button-secondary" id="encouragement-button" type="button">再給我一點鼓勵</button>
+            <button class="button button-secondary" id="return-to-exploration-button" type="button">回到心情探索</button>
+          </div>
+        </section>
+
+        <div class="page-actions explore-actions">
+          <button class="button button-secondary" type="button" data-go="mood">
+            <span aria-hidden="true">←</span> 上一頁
+          </button>
+          <button class="button button-primary" type="button" data-go="music">
+            下一步 <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="page-view music-view" id="music-view" aria-labelledby="music-title" hidden>
+        <div class="music-heading">
+          <div class="music-heading-icon" aria-hidden="true">♫</div>
+          <p class="eyebrow">心情點播室・第三站</p>
+          <h1 id="music-title">這首歌，想送給現在的你。</h1>
+          <p class="music-mood-line" id="music-mood-line">今天的你有點<strong id="music-mood"></strong>嗎？來聽聽這些歌曲吧！</p>
+          <p class="companion-message" id="companion-message" aria-live="polite"></p>
+        </div>
+
+        <section class="recommendations-section" aria-labelledby="recommendations-title">
+          <div class="recommendations-heading">
+            <span class="recommendations-sparkle" aria-hidden="true">✦</span>
+            <h2 id="recommendations-title">為今天的你，挑選了三首歌</h2>
+            <p>聽聽歌裡的故事，讓心情有個被陪伴的時刻。</p>
+          </div>
+          <div class="song-grid" id="song-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="music-player" aria-labelledby="demo-player-title">
+          <h2 class="demo-player-title" id="demo-player-title">星際原創旋律播放器</h2>
+          <p class="demo-player-intro">也可以聽聽心情點播室即時演奏的示範旋律。</p>
+          <div class="album-art" id="album-art" aria-hidden="true">
+            <span class="album-art-sparkle sparkle-left">✦</span>
+            <span class="vinyl-record" id="vinyl-record">
+              <span class="vinyl-label">
+                <span class="album-art-emoji" id="album-art-emoji">🎵</span>
+              </span>
+            </span>
+            <span class="album-art-sparkle sparkle-right">✧</span>
+          </div>
+          <div class="track-details">
+            <p class="track-label">為你挑選的旋律</p>
+            <h2 id="track-title">溫柔的午後</h2>
+            <p class="track-artist">心情點播室・原創聲音風景</p>
+          </div>
+          <div class="player-progress">
+            <label class="visually-hidden" for="track-progress">歌曲播放進度</label>
+            <input id="track-progress" type="range" min="0" max="32" step="0.1" value="0" />
+            <div class="track-time">
+              <span id="current-time">0:00</span>
+              <span id="duration-time">0:32</span>
+            </div>
+          </div>
+          <div class="player-controls">
+            <button class="player-control player-secondary" id="shuffle-button" type="button" aria-label="隨機換一首歌" title="隨機換一首歌">
+              <span aria-hidden="true">⤨</span>
+            </button>
+            <button class="player-control player-main" id="play-button" type="button" aria-label="播放音樂">
+              <span id="play-icon" aria-hidden="true">▶</span>
+            </button>
+            <button class="player-control player-secondary" id="next-track-button" type="button" aria-label="播放下一首" title="播放下一首">
+              <span aria-hidden="true">⏭</span>
+            </button>
+          </div>
+          <p class="player-status" id="player-status" aria-live="polite">按下播放，聽聽這段為你即時演奏的旋律。</p>
+          <p class="music-source">
+            這些是瀏覽器即時合成的原創示範旋律，不是現成錄音。
+            <a href="https://www.youtube.com/audiolibrary/music" target="_blank" rel="noopener noreferrer">前往 YouTube Audio Library 探索授權音樂</a>
+          </p>
+        </section>
+
+        <div class="page-actions music-actions">
+          <button class="button button-secondary" type="button" data-go="explore">
+            <span aria-hidden="true">←</span> 上一頁
+          </button>
+          <button class="button button-primary" type="button" data-go="reflection">
+            下一步 <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="page-view reflection-view" id="reflection-view" aria-labelledby="reflection-page-title" hidden>
+        <div class="explore-icon" aria-hidden="true">♡</div>
+        <p class="eyebrow">心情點播室・第四站</p>
+        <h1 id="reflection-page-title">給自己的一句話</h1>
+        <p class="explore-copy">聽完這段旋律，留一句溫柔的話給自己吧。</p>
+        <section class="reflection-card">
+          <label for="final-note">今天想對自己說些什麼？</label>
+          <p>不需要寫得完美，也可以留白。內容只會保存在目前的瀏覽器分頁。</p>
+          <textarea id="final-note" class="reflection-input" rows="4" maxlength="1000" placeholder="例如：今天的我已經很努力了……（選填）"></textarea>
+          <button class="button button-primary mood-card-generate" id="send-to-future-button" type="button">送給未來的自己</button>
+        </section>
+        <article class="memory-card" id="memory-card" aria-labelledby="memory-card-title" hidden>
+          <div class="memory-card-topline"><span aria-hidden="true">✦</span> MOOD MEMORY <span aria-hidden="true">✦</span></div>
+          <h2 id="memory-card-title">給未來的自己</h2>
+          <div class="memory-card-mood">
+            <img class="memory-mood-spirit" id="memory-mood-spirit" src="assets/images/mood-spirits/happy.svg" alt="" />
+            <p>今天的心情：<strong id="memory-mood"></strong></p>
+          </div>
+          <section class="memory-card-section">
+            <h3>我想對自己說</h3>
+            <p class="memory-original" id="memory-original"></p>
+          </section>
+          <section class="memory-card-section">
+            <h3>月亮小精靈的回信</h3>
+            <p id="memory-reply"></p>
+          </section>
+          <p class="safety-reminder memory-safety-reminder" id="memory-safety-reminder" role="alert" hidden></p>
+          <p class="memory-blessing" id="memory-blessing"></p>
+          <p class="memory-date" id="memory-date"></p>
+        </article>
+        <p class="memory-card-feedback" id="memory-card-feedback" aria-live="polite"></p>
+        <p class="journey-complete-message" id="journey-complete-message" aria-live="polite"></p>
+        <div class="page-actions">
+          <button class="button button-secondary" type="button" data-go="music">
+            <span aria-hidden="true">←</span> 返回音樂點播
+          </button>
+          <button class="button button-secondary" id="rewrite-note-button" type="button">
+            重新寫一句話
+          </button>
+          <button class="button button-secondary" id="collect-memory-card-button" type="button" disabled>
+            收藏這份心情
+          </button>
+          <button class="button button-primary" id="complete-journey-button" type="button">
+            完成今天的旅程 <span aria-hidden="true">✦</span>
+          </button>
+          <button class="button constellation-link" type="button" data-go="constellation">
+            我的心情星座
+          </button>
+        </div>
+      </section>
+
+      <section class="page-view constellation-view" id="constellation-view" aria-labelledby="constellation-title" hidden>
+        <div class="explore-icon" aria-hidden="true">✧</div>
+        <p class="eyebrow">屬於你的星際小宇宙</p>
+        <h1 id="constellation-title">我的心情星空月曆</h1>
+        <p class="explore-copy">每天的心情都值得留下位置，回頭看看自己走過的日子。</p>
+
+        <section class="mood-calendar-card" aria-label="每月心情月曆">
+          <div class="calendar-toolbar">
+            <button class="calendar-nav-button" id="calendar-previous-month" type="button" aria-label="上一個月">←</button>
+            <h2 class="calendar-month-title" id="calendar-month-title" aria-live="polite"></h2>
+            <button class="calendar-nav-button" id="calendar-next-month" type="button" aria-label="下一個月">→</button>
+            <button class="button button-secondary calendar-today-button" id="calendar-today-button" type="button">回到今天</button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+          </div>
+          <div class="mood-calendar-grid" id="mood-calendar-grid" role="group" aria-label="心情紀錄月曆"></div>
+          <p class="calendar-legend"><span class="legend-mood-icon" aria-hidden="true">☺</span> 有插畫的日期代表有心情紀錄 <span class="legend-today-dot" aria-hidden="true">✦</span> 今天</p>
+        </section>
+
+        <section class="calendar-diary-card" id="calendar-diary-card" aria-labelledby="calendar-diary-date" hidden>
+          <div class="diary-card-heading">
+            <div class="diary-mood-portrait" id="diary-mood-portrait" hidden>
+              <img id="diary-mood-image" src="assets/images/mood-spirits/happy.svg" alt="" />
+            </div>
+            <div>
+              <p class="eyebrow">留給自己的那一天</p>
+              <h2 id="calendar-diary-date"></h2>
+              <p class="diary-mood-label" id="diary-mood-label"></p>
+            </div>
+          </div>
+          <p class="diary-intensity" id="diary-intensity" hidden></p>
+          <section class="diary-entry" id="diary-reflection-entry" hidden>
+            <h3>給心裡的話</h3><p id="diary-reflection"></p>
+          </section>
+          <section class="diary-entry" id="diary-response-entry" hidden>
+            <h3>月亮小精靈當時的回應</h3><p id="diary-response"></p>
+          </section>
+          <section class="diary-entry" id="diary-final-note-entry" hidden>
+            <h3>給自己的一句話</h3><p id="diary-final-note"></p>
+          </section>
+          <section class="diary-entry" id="diary-final-reply-entry" hidden>
+            <h3>給自己的祝福</h3><p id="diary-final-reply"></p>
+          </section>
+          <p class="calendar-no-record" id="calendar-no-record" hidden>這一天還沒有留下心情紀錄。每種心情都可以慢慢被認識。</p>
+          <p class="calendar-delete-feedback" id="calendar-delete-feedback" aria-live="polite"></p>
+          <button class="button button-secondary delete-day-button" id="delete-day-record-button" type="button" hidden>刪除這一天的紀錄</button>
+        </section>
+
+        <section class="mood-month-statistics" aria-labelledby="mood-statistics-title">
+          <p class="eyebrow">溫柔地回顧，不評分也不比較</p>
+          <h2 id="mood-statistics-title">這個月的心情小觀察</h2>
+          <p class="month-record-days" id="month-record-days"></p>
+          <p class="month-most-common" id="month-most-common"></p>
+          <p class="month-stars" id="month-stars"></p>
+          <p class="statistics-note">每一種心情都是生活的一部分，沒有哪一種心情是不應該出現的。</p>
+          <div class="mood-distribution" id="mood-distribution" aria-label="本月心情分布"></div>
+        </section>
+
+        <section class="constellation-section" aria-labelledby="constellation-sky-title">
+          <p class="eyebrow">把每一天的相遇，收藏成自己的星座</p>
+          <h2 id="constellation-sky-title">我的心情星空</h2>
+          <p class="constellation-count" id="constellation-count" aria-live="polite">你已點亮 0 顆心情星星</p>
+          <div class="constellation-sky" id="constellation-sky" aria-label="已完成的每日心情紀錄星星"></div>
+          <p class="constellation-detail" id="constellation-detail" aria-live="polite">點選星星，查看那一天的日記。</p>
+          <p class="constellation-empty" id="constellation-empty">完成一次心情旅程，第一顆星星就會在這裡亮起。</p>
+        </section>
+        <div class="page-actions">
+          <button class="button button-secondary" type="button" data-go="home">
+            <span aria-hidden="true">←</span> 返回首頁
+          </button>
+          <button class="button button-secondary" id="clear-constellation-button" type="button">
+            清除所有紀錄
+          </button>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span aria-hidden="true">✦</span> 每一種心情，都值得被溫柔對待。
+      </footer>
+    </main>
+    <aside class="moon-mascot" id="moon-mascot">
+      <p class="moon-speech" id="moon-speech" aria-live="polite"></p>
+      <button class="moon-mascot-button" id="moon-mascot-button" type="button" aria-label="月亮小精靈，點擊聽一句鼓勵">
+        <span class="mascot-moon" aria-hidden="true">
+          <span class="mascot-eye mascot-eye-left"></span>
+          <span class="mascot-eye mascot-eye-right"></span>
+          <span class="mascot-smile"></span>
+        </span>
+        <span class="mascot-star mascot-star-one" aria-hidden="true">✦</span>
+        <span class="mascot-star mascot-star-two" aria-hidden="true">✧</span>
+      </button>
+    </aside>
+  </body>
+</html>
